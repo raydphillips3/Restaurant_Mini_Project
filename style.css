@@ -1,0 +1,25 @@
+.container {
+    margin-left: 100px;
+    margin-right: 50px;
+}
+
+#tables {
+    background-color: red;
+    font-weight: bold;
+    border-color: red;
+}
+
+#home {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#makeres {
+    background-color: blue;
+    font-weight: bold;
+    border-color: blue;
+}
+
+.cardheader {
+    font-weight: bold;
+}
