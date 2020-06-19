@@ -7,6 +7,7 @@
     <title>Reservations</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -50,26 +51,44 @@
                 <form>
                     <div class="form-group">
                         Name
-                        <input class="form-control" type="text" placeholder="First and Last Name">
+                        <input class="form-control" type="text" id="name" placeholder="First and Last Name">
                     </div>
                     <div class="form-group">
                         Phone Number
-                        <input class="form-control" type="text" placeholder="Area Code and Number">
+                        <input class="form-control" type="text" id="number" placeholder="Area Code and Number">
                     </div>
                     Email
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Optional">
+                        <input class="form-control" type="text" id="email" placeholder="Optional">
                     </div>
                     Unnique ID
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Example: DJRay">
+                        <input class="form-control" type="text" id="unique" placeholder="Example: DJRay">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
             <!----------------------------------------------------------------------------------------------------------->
         </div>
     </div>
+    <script type="text/javascript">
+        $("#submit").on("click", function(event) {
+          event.preventDefault();
+          var newReservation = {
+            name: $("#name").val().trim(),
+            number: $("#number").val().trim(),
+            email: $("#email").val().trim(),
+            unique: $("#unique").val().trim()
+          };
+    
+          $.post("/api/reservations", newReservation)
+            .then(function(data) {
+              console.log("tables.html", data);
+              alert("Adding Reservation...");
+            });
+        });
+      </script>
+
 </body>
 
 </html>

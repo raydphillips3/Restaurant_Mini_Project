@@ -23,3 +23,7 @@
 .cardheader {
     font-weight: bold;
 }
+
+#waitList {
+    margin-top: 20px;
+}
